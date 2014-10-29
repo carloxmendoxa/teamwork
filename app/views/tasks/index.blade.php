@@ -6,12 +6,14 @@
   <div class="row">
     <div class="columns large-11">
       {{ HTML::linkAction('tasks.show',$task->title . ' (' . $task->duration . ' Hours)',[$task->id],[]) }}<br>
-      {{ 'Start Task: '. $task->startDate . ' End Task: ' . $task->endDate }}
       @if($task->statusTask==0)
-	    {{{ 'Inactive' }}}
-	  @else
-		{{{ 'Active' }}}
-	  @endif
+	      {{{ 'Pending' }}}
+	    @else
+		    {{{ 'Finished' }}}
+	    @endif
+      <br/>
+      <medium><b>{{ 'Start Task: ' }}</b>{{ $task->startDate }}</medium>
+      <medium><b>{{ 'End Task: ' }}</b>{{ $task->endDate }}</medium>
     </div>
     <div class="columns large-1">
       {{ HTML::linkAction('tasks.edit','Edit',[$task->id],['class'=>'button tiny']) }}

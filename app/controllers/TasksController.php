@@ -9,7 +9,7 @@ class TasksController extends \BaseController {
 	 */
 	public function index()
 	{
-		$tasks = Task::all();
+		$tasks = Task::orderBy('statusTask','asc')->orderBy('endDate', 'desc')->get();
 
 		return View::make('tasks.index', compact('tasks'));
 	}

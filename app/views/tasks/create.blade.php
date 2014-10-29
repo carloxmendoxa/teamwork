@@ -5,15 +5,15 @@
 {{ Form::label('title', 'Title') }}
 {{ Form::text('title') }}
 {{ Form::label('description', 'Description') }}
-{{ Form::text('description') }}
+{{ Form::textarea('description') }}
 {{ Form::label('duration', 'Duration') }}
-{{ Form::text('duration') }}
+{{ Form::number('duration', '1') }}
 {{ Form::label('startDate', 'Start Date') }}
 {{ Form::text('startDate') }}
 {{ Form::label('endDate', 'End Date') }}
 {{ Form::text('endDate') }}
 {{ Form::label('statusTask', 'Status Task') }}
-{{ Form::text('statusTask') }}
+{{ Form::select('statusTask', array('0' => 'Pending', '1' => 'Finished'), '0') }}
 {{ Form::submit('Create',array('class'=>'button')) }}
 {{ Form::close() }}
 @stop
