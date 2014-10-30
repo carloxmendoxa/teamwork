@@ -5,8 +5,8 @@ class Task extends \Eloquent {
 	// Add your validation rules here
 	public static $rules = [
 		// 'title' => 'required'
-	    'title' => 'required', 
-	    'description' => 'required', 
+	    'title' => 'required|min:5', 
+	    'description' => 'required|min:5', 
 	    'duration' => 'required|numeric', 
 	    'startDate' => 'required|date', 
 	    'endDate' => 'required|date', 

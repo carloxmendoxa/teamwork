@@ -4,9 +4,9 @@ class Teammember extends \Eloquent {
 
 	// Add your validation rules here
 	public static $rules = [
-		// 'title' => 'required'
-	    'name'=> 'required',
-	    'lastname'=> 'required'
+		// 'title' => 'required|min:5'
+	    'name'=> 'required|min:2',
+	    'lastname'=> 'required|min:3'
 	    ,'email'=> 'required|email'
 	];
 
