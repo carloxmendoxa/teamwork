@@ -20,6 +20,7 @@
 {{ Form::label('statusTask', 'Status Task') }}
 {{ Form::select('statusTask', array('0' => 'Pending', '1' => 'Finished'), '0') }}
 {{ $errors->first('statusTask','<small class="error">:message</small>') }}
+{{ Form::label('teammember_id', 'Team Member') }}
 {{ Form::select('teammember_id',$teammembers) }}
 {{ Form::submit('Create',array('class'=>'button')) }}
 {{ Form::close() }}

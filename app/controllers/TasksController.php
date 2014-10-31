@@ -10,8 +10,8 @@ class TasksController extends \BaseController {
 	public function index()
 	{
 		$tasks = Task::orderBy('statusTask','asc')->orderBy('endDate', 'desc')->get();
-
-		return View::make('tasks.index', compact('tasks'));
+		$teammembers = Teammember::all();
+		return View::make('tasks.index', compact('tasks', 'teammembers'));
 	}
 
 	/**

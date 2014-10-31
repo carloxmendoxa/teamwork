@@ -14,6 +14,9 @@
       <br/>
       <medium><b>{{ 'Start Task: ' }}</b>{{ $task->startDate }}</medium>
       <medium><b>{{ 'End Task: ' }}</b>{{ $task->endDate }}</medium>
+      <br/>
+      <br/>
+      <small>{{ $task->created_at }}</small>
     </div>
     <div class="columns large-1">
       {{ HTML::linkAction('tasks.edit','Edit',[$task->id],['class'=>'button tiny']) }}
