@@ -10,7 +10,7 @@
       <div id="panel1" class="content active">
 	@foreach($teammembers as $teammember)
 	    <div class="columns large-12">
-		{{ HTML::linkAction('teammembers.show',$teammember->nombre . ' ' . $teammember->apellido,[$teammember->id],[]) }}
+		{{ HTML::linkAction('teammembers.show',$teammember->name . ' ' . $teammember->lastname,[$teammember->id],[]) }}
 	    </div>
 	    <div class="panel callout radius">
 		@foreach($tasks as $task)
@@ -37,8 +37,7 @@
 			  </div>
 			</div>
 		    </div>
-		    <?php $notask = 1; ?>
-		@endif
+		 @endif
 	     @endforeach
 	   </div>
       	 @endforeach	
@@ -55,14 +54,14 @@
 	 </div>
 	 <div class="panel callout radius">
 	   @foreach($tasks as $task)
-	     @if ($task->member_id == $teammember->id and $task->statusTask == 1)
+	     @if ($task->teammember_id == $teammember->id and $task->statusTask == 1)
 	       <div class="row">
 		 <div class="columns large-11">
 		   <div class="columns large-2">
 		     Task's id: {{{ $task->id }}}
 		   </div>
 		   <div class="columns large-8">
-		     {{ HTML::linkAction('tasks.show',$task->titulo,[$task->id],[]) }}
+		     {{ HTML::linkAction('tasks.show',$task->title,[$task->id],[]) }}
 		     <br/>
 		     Duration: {{{ $task->duration }}} Hours.
 		     Start Date: {{{ $task->startDate }}}
@@ -87,31 +86,4 @@
 
   </dl>
 <br/>
-
-
-@foreach($tasks as $task)
-  <div class="row">
-    <div class="columns large-11">
-      {{ HTML::linkAction('tasks.show',$task->title . ' (' . $task->duration . ' Hours)',[$task->id],[]) }}<br>
-      @if($task->statusTask==0)
-	      {{{ 'Pending' }}}
-	    @else
-		    {{{ 'Finished' }}}
-	    @endif
-      <br/>
-      <medium><b>{{ 'Start Task: ' }}</b>{{ $task->startDate }}</medium>
-      <medium><b>{{ 'End Task: ' }}</b>{{ $task->endDate }}</medium>
-      <br/>
-      <br/>
-      <small>{{ $task->created_at }}</small>
-    </div>
-    <div class="columns large-1">
-      {{ HTML::linkAction('tasks.edit','Edit',[$task->id],['class'=>'button tiny']) }}
-      {{ Form::model($task, ['route' => ['tasks.destroy', $task->id], 'method' => 'DELETE' ]) }}
-      {{ Form::button('Destroy', ['type' => 'submit', 'class' => 'tiny alert button'])}}
-      {{ Form::close() }}
-    </div>
-  </div>
-  <hr>
-@endforeach
 @stop
