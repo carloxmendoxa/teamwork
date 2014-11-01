@@ -2,6 +2,30 @@
 @section('content')
 <h1>Tasks List</h1>
 {{ HTML::linkAction('tasks.create','New Task',[],['class'=>'button']) }}
+
+<br/>
+  <dl class="accordion" data-accordion>
+    <dd class="accordion-navigation">
+      <a href="#panel1">Pending</a>
+      <div id="panel1" class="content active">
+
+
+      </div>
+    </dd>
+
+    
+    <dd class="accordion-navigation">
+      <a href="#panel2">Finished Tasks</a>
+      <div id="panel2" class="content">
+
+
+      </div>
+    </dd>
+
+  </dl>
+<br/>
+
+
 @foreach($tasks as $task)
   <div class="row">
     <div class="columns large-11">
